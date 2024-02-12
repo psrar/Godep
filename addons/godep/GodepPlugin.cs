@@ -9,8 +9,8 @@ public partial class GodepPlugin : EditorPlugin
 	{
 		// Initialization of the plugin goes here.
         // Add the new type with a name, a parent type, a script and an icon.
-        var script = GD.Load<Script>("res://addons/godep/DependencyInjection/SceneContext.cs");
-        var texture = GD.Load<Texture2D>("res://icon.png");
+        var script = GD.Load<Script>("res://addons/godep/src/SceneContext.cs");
+        var texture = GD.Load<Texture2D>("res://addons/godep/graphics/scene_context.png");
         AddCustomType("SceneContext", "Node", script, texture);
 		
 	}
