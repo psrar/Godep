@@ -3,7 +3,7 @@
 
 # Godep: Godot C# dependency injection plugin
 Make DI easy again. Inspired by [Zenject](https://github.com/modesttree/Zenject). <br>
-:warning: <span style='color: red; font-size: 16px'> The plugin is in active development state. </span>
+:warning: <span style='color: red; font-size: 16px'> This plugin is in active development state. </span>
 
 ## :zap: <span style='color: lightgreen'>Features</span>
 - Project/Scene context separation
