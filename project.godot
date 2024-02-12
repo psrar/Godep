@@ -23,6 +23,10 @@ ProjectContext="*res://Sample/ProjectContext.tscn"
 
 project/assembly_name="Godep"
 
+[editor]
+
+script/templates_search_path="res://addons/godep/script_templates"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godep/plugin.cfg")

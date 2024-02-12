@@ -17,7 +17,7 @@ namespace Godep.DI
 
             foreach (var installer in installers)
             {
-                installer.container = Container;
+                installer.contextContainer = Container;
                 installer.InstallDependencies();
             }
 
