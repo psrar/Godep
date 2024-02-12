@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Godep"
-run/main_scene="res://Scenes/InitScene.tscn"
+run/main_scene="res://Sample/Scenes/InitScene.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Sample/icon.svg"
 
 [autoload]
 
-ProjectContext="*res://ProjectContext.tscn"
+ProjectContext="*res://Sample/ProjectContext.tscn"
 
 [dotnet]
 

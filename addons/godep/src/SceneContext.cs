@@ -1,36 +1,45 @@
 
-using System.Reflection;
+using System;
+using System.Collections.Generic;
+using Godot;
+using Godot.Collections;
 
 namespace Godep.DI
 {
     public partial class SceneContext : ContextInstaller
     {
-        public override void BeforeInstalling()
+        [Export] private bool forceInjectEverything = false;
+
+        protected override void BeforeInstalling()
         {
             ProjectContext projectContext = ProjectContext.Singleton;
             Container = new(projectContext.Container);
         }
 
-        public override void AfterInstalling()
+        protected override void AfterInstalling()
         {
-            var nodes = GetTree().GetNodesInGroup("RequiresInject");
-            var bindingFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+            Array<Node> nodes;
+            if (forceInjectEverything)
+                nodes = new Array<Node>(GetAllTreeNodes(GetTree().CurrentScene));
+            else
+                nodes = GetTree().GetNodesInGroup("RequiresInject");
 
             foreach (var node in nodes)
+                Inject(node);
+        }
+
+        private List<Node> GetAllTreeNodes(Node root)
+        {
+            List<Node> nodes = new();
+            int childCount = root.GetChildCount();
+            for (int i = 0; i < childCount; i++)
             {
-                FieldInfo[] fieldsInfo = node.GetType().GetFields(bindingFlags);
-                foreach (var field in fieldsInfo)
-                {
-                    var attributes = field.GetCustomAttributes(false);
-                    foreach (var attr in attributes)
-                    {
-                        if(attr is InjectAttribute)
-                        {
-                            field.SetValue(node, Container.Get(field.FieldType));
-                        }
-                    }
-                }
+                var node = root.GetChild(i);
+                nodes.AddRange(GetAllTreeNodes(node));
             }
+
+            nodes.Add(root);
+            return nodes;
         }
     }
 }

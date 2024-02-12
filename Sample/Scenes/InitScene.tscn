@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfme53brvlb8j"]
+
+[ext_resource type="Script" path="res://Sample/Source/InitScene.cs" id="1_7yrky"]
+[ext_resource type="Script" path="res://addons/godep/src/SceneContext.cs" id="2_74wi8"]
+
+[node name="InitScene" type="Node2D"]
+
+[node name="InitSceneScript" type="Node" parent="."]
+script = ExtResource("1_7yrky")
+
+[node name="SceneContext" type="Node" parent="."]
+script = ExtResource("2_74wi8")

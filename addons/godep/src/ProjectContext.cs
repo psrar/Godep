@@ -8,7 +8,7 @@ namespace Godep.DI
             Singleton = this;
         }
 
-        public override void BeforeInstalling()
+        protected override void BeforeInstalling()
         {
             Container = new();
         }
