@@ -8,5 +8,8 @@ public partial class ProjectInstaller : Installer
     {
         player = new() { Age = 21 };
         contextContainer.Bind(player);
+
+        contextContainer.BindWithId("lol", 2);
+        contextContainer.BindWithId("plar", new Player() { Age = 40 });
     }
 }
