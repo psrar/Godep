@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://brwht0h7nbmko"]
+[gd_scene load_steps=4 format=3 uid="uid://brwht0h7nbmko"]
 
 [ext_resource type="Script" path="res://Sample/Source/GameScene.cs" id="1_jq0x6"]
 [ext_resource type="Script" path="res://addons/godep/src/contexts/SceneContext.cs" id="2_r3j8m"]
+[ext_resource type="Script" path="res://Sample/Source/Installers/GameSceneInstaller.cs" id="3_16u1n"]
 
 [node name="GameScene" type="Node2D"]
 
 [node name="GameScript" type="Node" parent="." groups=["RequiresInject"]]
 script = ExtResource("1_jq0x6")
 
-[node name="SceneContext" type="Node" parent="."]
+[node name="SceneContext" type="Node" parent="." node_paths=PackedStringArray("installers")]
 script = ExtResource("2_r3j8m")
+installers = [NodePath("GameSceneInstaller")]
+
+[node name="GameSceneInstaller" type="Node" parent="SceneContext"]
+script = ExtResource("3_16u1n")
