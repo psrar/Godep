@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace Godep.DI
 {
@@ -10,6 +11,8 @@ namespace Godep.DI
     /// </summary>
     public class DIContainer
     {
+        private const BindingFlags bindingFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+
         private DIContainer parentContainer = null;
         private Dictionary<Type, object> container = new();
         private Dictionary<string, object> idContainer = new();
@@ -22,9 +25,34 @@ namespace Godep.DI
             container[typeof(DIContainer)] = this;
         }
 
-        public void InjectFrom(DIContainer parentContainer)
+        /// <summary>
+        /// Sets parent container
+        /// </summary>
+        public void LinkParent(DIContainer parentContainer)
         {
             this.parentContainer = parentContainer;
+        }
+
+        /// <summary>
+        /// Injects the dependencies of the context into the specified object via the Inject field attribute.
+        /// </summary>
+        public void InjectTo(object obj)
+        {
+            FieldInfo[] fieldsInfo = obj.GetType().GetFields(bindingFlags);
+            foreach (var field in fieldsInfo)
+            {
+                var attributes = field.GetCustomAttributes(false);
+                foreach (var attr in attributes)
+                {
+                    if (attr is InjectAttribute injAttr)
+                    {
+                        if (injAttr.Id == null)
+                            field.SetValue(obj, Get(field.FieldType));
+                        else
+                            field.SetValue(obj, GetWithId(field.FieldType, injAttr.Id));
+                    }
+                }
+            }
         }
 
         public T Get<T>()

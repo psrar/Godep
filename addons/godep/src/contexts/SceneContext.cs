@@ -34,7 +34,7 @@ namespace Godep.DI
                 foreach (var node in nodes)
                 {
                     currentNode = node.Name;
-                    Inject(node);
+                    Container.InjectTo(node);
                 }
             }
             catch (Exception e)
