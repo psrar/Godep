@@ -18,14 +18,26 @@ namespace Godep.DI
 
         protected override void AfterInstalling()
         {
-            Array<Node> nodes;
-            if (forceInjectEverything)
-                nodes = new Array<Node>(GetAllTreeNodes(GetTree().CurrentScene));
-            else
-                nodes = GetTree().GetNodesInGroup("RequiresInject");
+            string currentNode = "";
+            try
+            {
+                Array<Node> nodes;
+                if (forceInjectEverything)
+                    nodes = new Array<Node>(GetAllTreeNodes(GetTree().CurrentScene));
+                else
+                    nodes = GetTree().GetNodesInGroup("RequiresInject");
 
-            foreach (var node in nodes)
-                Inject(node);
+                foreach (var node in nodes)
+                {
+                    currentNode = node.Name;
+                    Inject(node);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message + $" when injecting in {currentNode} node");
+            }
+
         }
 
         private List<Node> GetAllTreeNodes(Node root)

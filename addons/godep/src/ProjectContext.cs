@@ -2,7 +2,7 @@ namespace Godep.DI
 {
     public partial class ProjectContext : ContextInstaller
     {
-        public static ProjectContext Singleton = null;
+        public static ProjectContext Singleton { get; private set; } = null;
         public ProjectContext()
         {
             Singleton = this;
