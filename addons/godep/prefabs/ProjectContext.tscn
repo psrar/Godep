@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ngh262vobvtg"]
+
+[ext_resource type="Script" path="res://addons/godep/src/ProjectContext.cs" id="1_dimwi"]
+
+[node name="ProjectContext" type="Node"]
+script = ExtResource("1_dimwi")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://brwht0h7nbmko"]
+
+[ext_resource type="Script" path="res://Source/GameScene.cs" id="1_jq0x6"]
+[ext_resource type="Script" path="res://addons/godep/src/SceneContext.cs" id="2_r3j8m"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="GameScript" type="Node" parent="." groups=["RequiresInject"]]
+script = ExtResource("1_jq0x6")
+
+[node name="SceneContext" type="Node" parent="."]
+script = ExtResource("2_r3j8m")
