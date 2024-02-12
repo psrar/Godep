@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq6tktdwv6wrv"
-path="res://.godot/imported/scene_context.png-01c772c5585af3d0f247aa43fb25f65d.ctex"
+uid="uid://dqvhlh14doar7"
+path="res://.godot/imported/project_context.png-eca00c91ad8c20244f728fe412515df8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/godep/graphics/scene_context.png"
-dest_files=["res://.godot/imported/scene_context.png-01c772c5585af3d0f247aa43fb25f65d.ctex"]
+source_file="res://addons/godep/graphics/project_context.png"
+dest_files=["res://.godot/imported/project_context.png-eca00c91ad8c20244f728fe412515df8.ctex"]
 
 [params]
 
