@@ -3,6 +3,9 @@ using Godot;
 
 namespace Godep.DI
 {
+    /// <summary>
+    /// Defines the context to which the DIContainer corresponds. On entering the tree, traverses the specified installers, calling their InstallDependencies method and passing them the context container.<br></br>
+    /// </summary>
     public abstract partial class ContextInstaller : Node
     {
         private const BindingFlags bindingFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
@@ -24,6 +27,9 @@ namespace Godep.DI
             AfterInstalling();
         }
 
+        /// <summary>
+        /// Injects the dependencies of the context into the specified object via the Inject field attribute.
+        /// </summary>
         public void Inject(object obj)
         {
             FieldInfo[] fieldsInfo = obj.GetType().GetFields(bindingFlags);
@@ -43,6 +49,9 @@ namespace Godep.DI
             }
         }
 
+        /// <summary>
+        /// Method to call before executing all the installers
+        /// </summary>
         protected virtual void BeforeInstalling() { }
         protected virtual void AfterInstalling() { }
     }

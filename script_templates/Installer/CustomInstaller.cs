@@ -2,8 +2,8 @@
 // meta-description: Example of installing dependencies of the project or scene context
 // meta-default: true
 
-/*
-using _BINDINGS_NAMESPACE_;
+
+// using _BINDINGS_NAMESPACE_;
 using Godep.DI;
 
 public partial class _CLASS_ : Installer
@@ -20,4 +20,3 @@ public partial class _CLASS_ : Installer
         // contextContainer.Bind(appConfig);
     }
 }
-*/

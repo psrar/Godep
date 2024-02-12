@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 namespace Godep.DI
 {
+    /// <summary>
+    /// A class that stores dependencies and selects them by the requested type or ID. <br></br>
+    /// Nesting is supported, which means that if there is no dependency in a given container instance, the search will continue in the parent container.<br></br>
+    /// To specify a parent container, use a special constructor or apply the InjectFrom() method
+    /// </summary>
     public class DIContainer
     {
         private DIContainer parentContainer = null;
@@ -15,6 +20,11 @@ namespace Godep.DI
         {
             this.parentContainer = parentContainer;
             container[typeof(DIContainer)] = this;
+        }
+
+        public void InjectFrom(DIContainer parentContainer)
+        {
+            this.parentContainer = parentContainer;
         }
 
         public T Get<T>()
@@ -77,11 +87,6 @@ namespace Godep.DI
 
             idContainer[id] = instance;
             return instance;
-        }
-
-        public void InjectFrom(DIContainer parentContainer)
-        {
-            this.parentContainer = parentContainer;
         }
     }
 }

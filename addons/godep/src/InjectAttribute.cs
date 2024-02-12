@@ -2,6 +2,9 @@ using System;
 
 namespace Godep.DI
 {
+    /// <summary>
+    /// Allows ContextInstaller to find and inject dependencies in classes
+    /// </summary>
     [AttributeUsage(AttributeTargets.Field, Inherited = false, AllowMultiple = true)]
     sealed class InjectAttribute : Attribute
     {

@@ -6,6 +6,10 @@ using Godot.Collections;
 
 namespace Godep.DI
 {
+    /// <summary>
+    /// A class that defines the dependency context of a scene and inherits ProjectContext dependencies.<br></br>
+    /// For more information see ContextInstaller
+    /// </summary>
     public partial class SceneContext : ContextInstaller
     {
         [Export] private bool forceInjectEverything = false;
