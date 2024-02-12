@@ -14,6 +14,7 @@ namespace Godep.DI
         public DIContainer(DIContainer parentContainer)
         {
             this.parentContainer = parentContainer;
+            container[typeof(DIContainer)] = this;
         }
 
         public T Get<T>()

@@ -8,5 +8,6 @@ public partial class GameScene : Node
     public override void _Ready()
     {
         GD.Print(injectedPlayer + " was injected.");
+        
     }
 }

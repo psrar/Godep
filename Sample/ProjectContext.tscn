@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://duwjhlq071o18"]
 
-[ext_resource type="Script" path="res://addons/godep/src/ProjectContext.cs" id="1_d8hc5"]
+[ext_resource type="Script" path="res://addons/godep/src/contexts/ProjectContext.cs" id="1_d8hc5"]
 [ext_resource type="Script" path="res://Sample/Source/Installers/ProjectInstaller.cs" id="2_aouv6"]
 
 [node name="ProjectContext" type="Node" node_paths=PackedStringArray("installers")]
