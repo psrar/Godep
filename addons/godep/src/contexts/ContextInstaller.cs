@@ -32,9 +32,12 @@ namespace Godep.DI
                 var attributes = field.GetCustomAttributes(false);
                 foreach (var attr in attributes)
                 {
-                    if (attr is InjectAttribute)
+                    if (attr is InjectAttribute injAttr)
                     {
-                        field.SetValue(obj, Container.Get(field.FieldType));
+                        if (injAttr.Id == null)
+                            field.SetValue(obj, Container.Get(field.FieldType));
+                        else
+                            field.SetValue(obj, Container.GetWithId(field.FieldType, injAttr.Id));
                     }
                 }
             }

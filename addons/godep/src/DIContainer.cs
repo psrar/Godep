@@ -47,6 +47,20 @@ namespace Godep.DI
             return (T)dep;
         }
 
+        public object GetWithId(Type type, string id)
+        {
+            idContainer.TryGetValue(id, out var dep);
+            if (dep == null && parentContainer != null)
+                dep = parentContainer.GetWithId(type, id);
+
+            if (dep == null)
+                throw new Exception($"Dependency {type} with id {id} not found");
+            else if (dep.GetType() != type)
+                throw new Exception($"Found dependency '{id}', but required type {type} doesn't match type of this object: {dep.GetType()}");
+
+            return dep;
+        }
+
         public T Bind<T>(T instance, bool overwrite = false)
         {
             if (container.ContainsKey(typeof(T)) && !overwrite)
