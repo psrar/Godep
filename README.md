@@ -1,9 +1,9 @@
 
-<img src="addons/godep/graphics/scene_context.png" height='68' style="align:center;image-rendering:pixelated;">
+<img src="Docs/Media/Godep.png" height=68 width=68>
 
 # Godep: Godot C# dependency injection plugin
 Make DI easy again. Inspired by [Zenject](https://github.com/modesttree/Zenject). <br>
-<span style='color: red; font-size: 16px'> The plugin is in development. </span>
+:warning: <span style='color: red; font-size: 16px'> The plugin is in active development state. </span>
 
 ## :zap: <span style='color: lightgreen'>Features</span>
 - Project/Scene context separation

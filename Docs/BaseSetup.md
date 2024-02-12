@@ -16,7 +16,7 @@ Don't forget to trigger the build after adding new scripts to csharp
 4) Add this installer to the ProjectContext installer list.
 ![alt text](Media/BaseSetup/Create_ProjectInstaller.gif)
 
-5) Configure the installer to install the dependencies you need (See Binding and injection(?)). This assumes application-level dependencies (configs, authentication data, etc.)
+5) Configure the installer to install the dependencies you need (See Binding and injection(WIP)). This assumes application-level dependencies (configs, authentication data, etc.)
 
 
 ## SceneContext
